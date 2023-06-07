@@ -23,7 +23,7 @@ function App() {
       
       {
         Page === 'Categories' && (
-          <div>
+          <div><font color="white">
           <h3>API Project</h3>
             <hr />
             <Categories
@@ -38,11 +38,13 @@ function App() {
             {
               categories.length === 0 && (
                 <div className="text-center">
+                  <font color="white">
                   <h3>Your list is empty</h3>
-                  Add a new category to get started.
+                  Add a new category to get started.</font>
                 </div>
               )
             }
+            </font>
           </div>
         )
       }

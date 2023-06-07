@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const ImgExpo = ({ categories = [] }) => {
     const [urlList, setUrlList] = useState([])
 
-    const getGifs = async (categories) => {
+    const getImg = async (categories) => {
         if (categories.length === 0) {
             setUrlList([])
             return
@@ -17,20 +17,19 @@ const ImgExpo = ({ categories = [] }) => {
             return apiResponse.hits
         }))
 
-        let gifsList = []
+        let imgList = []
 
         responsesList.forEach((hits) => {
             hits.forEach((item) => {
-                gifsList = [...gifsList, item.webformatURL.split('?')[0]]
+                imgList = [...imgList, item.previewURL.split('?')[0]]
             })
         })
 
-        setUrlList([...gifsList])
+        setUrlList([...imgList])
     }
 
     useEffect(() => {
-        //Efecto
-        getGifs(categories)  
+        getImg(categories)  
         },
         [categories]
     )
